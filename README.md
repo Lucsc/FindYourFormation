@@ -6,6 +6,6 @@
 ## Description
 Ce projet est une application de démonstration conçue pour illustrer le concept d’aide aux étudiants dans la recherche de la formation idéale selon leurs qualités uniques. L’objectif est de fournir des recommandations personnalisées à chaque étudiant, ouvrant la voie à une future application plus avancée.
 
-La démo est développée avec Vue.js et Nuxt, offrant une expérience utilisateur moderne et réactive.
+La démo est développée avec Vue.js et Nuxt$.
 
 Pour les instructions de lancement de l’application en local, veuillez consulter le fichier README situé dans le dossier du projet.
