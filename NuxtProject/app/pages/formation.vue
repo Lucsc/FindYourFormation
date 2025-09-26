@@ -3,8 +3,12 @@
     <section class="max-w-md mx-auto">
       <div class="mb-6">
         <div class="rounded-xl bg-[#f3eeec] px-4 py-3 text-center">
-          <div class="text-xs text-gray-600">EPITECH Paris | Paris</div>
-          <div class="text-sm text-gray-700 font-medium">Ecole d'expert en technologie de l'information</div>
+          <div class="text-xs text-gray-600">EPITECH Paris |
+            <img src="~/assets/icons/map-pin.svg" alt="Location" class="inline h-3 w-3" />
+            Paris
+          </div>
+
+          <div class="text-sm text-gray-900 font-bold">Ecole d'expert en technologie de l'information</div>
         </div>
       </div>
 
@@ -36,7 +40,7 @@
           </div>
 
           <div class="text-center">
-            <div class="text-2xl font-semibold">{{ percent }}% · <span class="text-base font-medium">{{ label }}</span></div>
+            <div class="text-2xl font-semibold">{{ percent }}% · <span class="text-2x1 text-gray-900 font-semibold">{{ label }}</span></div>
             <div class="mt-2 text-sm text-gray-600">Fiabilité
               <span class="ml-2 inline-flex items-center">
                 <template v-for="i in 5">
