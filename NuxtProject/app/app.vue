@@ -1,6 +1,6 @@
 <template>
   <HeaderComponent />
-  <div class="min-h-screen bg-[#f7f3f0]">
+  <div class="bg-[#f7f3f0] min-h-screen overflow-y-hidden">
     <nuxt-page  />
   </div>
 </template>
