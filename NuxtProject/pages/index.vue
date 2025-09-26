@@ -32,8 +32,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useRouter } from '#app';
-import LyceeCard from '~/components/LyceeCard.vue';
-import SectionCard from '~/components/SectionCard.vue';
+import LyceeCard from '@/components/LyceeCard.vue';
+import SectionCard from '@/components/SectionCard.vue';
 
 const valuesCard = ref<{
     School: { name: string; city: string; category: string } | null;

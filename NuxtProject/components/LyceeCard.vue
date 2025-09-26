@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 interface Props {
     name: string;
@@ -51,7 +51,7 @@ const emits = defineEmits<{
     (e: 'update:lycee', lycee: { name: string; city: string; category: string } | null): void;
 }>();
 
-watch(selectedLycee, (newVal) => {
+watch(selectedLycee, (newVal : any) => {
     emits('update:lycee', newVal);
 });
 </script>
