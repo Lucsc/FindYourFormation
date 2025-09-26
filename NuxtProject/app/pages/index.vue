@@ -6,6 +6,7 @@
                     :name="valuesCard.School?.name ?? 'Aucun lycée sélectionné'"
                     :city="valuesCard.School?.city ?? ''"
                     :category="valuesCard.School?.category ?? ''"
+                    @update:lycee="(lycee) => valuesCard.School = lycee"
                 />
             </div>
 
@@ -79,6 +80,10 @@ async function fetchPrefill() {
                 : null;
             if (btnParcours) btnParcours.selected = true;
             valuesCard.value.Classe = [classCard.classe, classCard.parcours];
+
+            nextTick(() => {
+                classeSections.value = [...classeSections.value];
+            });
         }
     }
 }
