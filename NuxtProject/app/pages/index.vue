@@ -21,7 +21,9 @@
             </div>
 
             <div class="mt-8 flex justify-center">
-                <button class="px-6 py-3 rounded-full bg-white border border-gray-200 text-gray-600">Confirmer</button>
+                <button @click="goToFormation" :class="['px-6 py-3 rounded-full ',
+                    canConfirm ? 'bg-gray-900 text-white' : 'bg-white border border-gray-200 text-gray-400'
+                ]" :style="{ cursor: canConfirm ? 'pointer' : 'not-allowed' }">Confirmer</button>
             </div>
         </section>
     </main>
@@ -29,6 +31,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { useRouter } from '#app';
 import LyceeCard from '~/components/LyceeCard.vue';
 import SectionCard from '~/components/SectionCard.vue';
 
@@ -44,7 +47,9 @@ const valuesCard = ref<{
     Notes: null,
 });
 
-const selections = useState('selections', () => ({}));
+const canConfirm = computed(() => {
+    return valuesCard.value.School != null && valuesCard.value.Classe != null;
+})
 
 const classeSections = ref([
     {
@@ -79,7 +84,6 @@ async function fetchPrefill() {
                 ? classeSections.value[1].buttons.find(btn => btn.value === classCard.parcours)
                 : null;
             if (btnParcours) btnParcours.selected = true;
-            valuesCard.value.Classe = [classCard.classe, classCard.parcours];
 
             nextTick(() => {
                 classeSections.value = [...classeSections.value];
@@ -94,8 +98,23 @@ onMounted(() => {
     fetchPrefill();
 });
 
+const router = useRouter();
+function goToFormation() {
+    router.push('/formation');
+}
+
 function handleSectionUpdate(payload: { title : string, values : Array<string> }) {
     if (!payload || !payload.title) return;
-    selections.value = { ...selections.value, [payload.title]: payload.values };
+    switch (payload.title) {
+        case 'Classe':
+            valuesCard.value.Classe = payload.values;
+            break;
+        case 'Spécialités':
+            valuesCard.value.Specialites = payload.values;
+            break;
+        case 'Notes':
+            valuesCard.value.Notes = payload.values;
+            break;
+    }
 }
 </script>
