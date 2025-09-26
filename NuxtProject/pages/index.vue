@@ -100,6 +100,7 @@ onMounted(() => {
 
 const router = useRouter();
 function goToFormation() {
+    if(!canConfirm.value) return;
     router.push('/formation');
 }
 
